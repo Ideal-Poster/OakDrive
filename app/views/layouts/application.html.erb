@@ -7,8 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container">
 
-<%= yield %>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+
+        <div class="navbar-brand"><%= link_to 'Oakdrive', root_path %></div>
+        <ul class="nav navbar-nav">
+          <li><a href="#">Events</a></li>
+          <li><a href="#">Subscribe</a></li>
+          <li><a href="#">Donate</a></li>
+          <li><a href="#">Information</a></li>
+        </ul>
+      </div>
+    </nav>
+
+
+    <%= yield %>
+
+  </div>
 
 </body>
 </html>

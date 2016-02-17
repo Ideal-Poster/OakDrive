@@ -1,6 +1,6 @@
 body {
   background-color: #fff;
-  color: #333;
+  color: blue;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -64,6 +64,10 @@ div {
     margin-bottom: 0px;
     background-color: #c00;
     color: #fff;
+  }
+
+  h1 {
+    color: green;
   }
 
   ul li {
