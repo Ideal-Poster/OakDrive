@@ -1,25 +1,22 @@
 <p id="notice"><%= notice %></p>
 
+  <div class="container-fluid">
+    <div class="row row-centered">
 
-  <div class="jumbotron">
-    <div class="container">
+    <div class="jumbotron">
+
       <h1>Welcome to the Oakdrive experience</h1>
       <p>This is just a place holder all this will be styled all nice later on.</p>
       <p>Damn dude these tracks are fiyah. "ask not"?! what? forgetaboutit.</p>
     </div>
-  </div>
 
-<div class="episode-index"
-      style="text-align:center">
 
-  <div style="text-align:left">
-    <h1>Episodes</h1>
-  </div>
+      <h1>Episodes</h1>
 
       <% @episodes.each do |episode| %>
-        <div class="col-md-3">
+        <div class="col-sm-6 col-lg-3 col-md-4 col-centered">
           <%= link_to image_tag(episode.image.url(:thumb)), episode %>
-          <div class="">
+          <div class="episode-info">
             <h4><%= episode.title %></h4>
             <p><%= episode.description %></p>
 
@@ -31,4 +28,4 @@
 
         <% end %>
       </div>
-</div>
+    </div>
