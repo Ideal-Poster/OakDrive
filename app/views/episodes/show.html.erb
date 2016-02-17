@@ -16,9 +16,10 @@
 </p>
 
 <p>
-  <strong>Link:</strong>
-  <%= @episode.link %>
 </p>
-
 <%= link_to 'Edit', edit_episode_path(@episode) %> |
 <%= link_to 'Back', episodes_path %>
+<% link = @episode.link %>
+
+
+  <iframe width="100%" height="750" scrolling="no" frameborder="no" src="<%= @episode.link %>"></iframe>
