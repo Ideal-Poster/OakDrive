@@ -1,25 +1,30 @@
-<p id="notice"><%= notice %></p>
+<div class="col-xs-4">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @episode.title %>
-</p>
+  <p>
+    <strong>Title:</strong>
+    <%= @episode.title %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @episode.description %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @episode.description %>
+  </p>
 
-<p>
-  <strong>Guests:</strong>
-  <%= @episode.guests %>
-</p>
+  <p>
+    <strong>Guests:</strong>
+    <%= @episode.guests %>
+  </p>
 
-<p>
-</p>
-<%= link_to 'Edit', edit_episode_path(@episode) %> |
-<%= link_to 'Back', episodes_path %>
-<% link = @episode.link %>
+  <p>
+    <strong>Episode Num:</strong>
+    <%= @episode.episode_num %>
+  </p>
 
-
+  <p>
+  </p>
+  <%= link_to 'Edit', edit_episode_path(@episode) %> |
+  <%= link_to 'Back', episodes_path %>
+  <% link = @episode.link %>
   <iframe width="100%" height="750" scrolling="no" frameborder="no" src="<%= @episode.link %>"></iframe>
+</div>

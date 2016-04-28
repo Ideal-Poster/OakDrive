@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20160217185922) do
     t.string   "description"
     t.string   "guests"
     t.string   "link"
+    t.integer  "episode_num"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "image_file_name"

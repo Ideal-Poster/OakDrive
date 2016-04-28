@@ -1,41 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-  <div class="container-fluid">
-    <div class="row row-centered">
-      <div class="jumbotron">
-        <h1>Welcome to the Oakdrive experience</h1>
-        <p>This is just a place holder all this will be styled all nice later on.</p>
-        <p>Damn dude these tracks are fiyah. "ask not"?! what? forgetaboutit.</p>
-      </div>
-
-      <%= form_tag episodes_path, :method => "get" do %>
-        <%= text_field_tag :search, params[:search], placholder: "search" %>
-        <%= submit_tag "Search", :name => nil %>
-      <% end %>
-
-      <h1>Episodes</h1>
-      <div class="container-fluid">
-
-      <div class="episodes-container text-center">
-        <% @episodes.each do |episode| %>
-          <div class="col-md-4 col-sm-6 col-lg-3">
-            <%= link_to image_tag(episode.image.url(:thumb)), episode %>
-
-            <div class="episode-info"
-                        style="height:150px;">
-              <h4><%= episode.title %></h4>
-              <p><%= episode.description %></p>
-              <%= link_to 'Destroy', episode_path(episode),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %>
-            </div>
-          </div>
-        <% end %>
-      </div>
+<div class="col-xs-8">
+  <% @episodes.each do |episode| %>
+    <div class="col-xs-6">
+      <%= link_to image_tag(episode.image.url(:thumb)), episode %>
     </div>
-
-
-
-    </div>
-    <%= will_paginate @episodes%>
-  </div>
+  <% end %>
+</div>

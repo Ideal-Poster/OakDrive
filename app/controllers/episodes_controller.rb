@@ -4,21 +4,28 @@ class EpisodesController < ApplicationController
   # GET /episodes
   # GET /episodes.json
   def index
-    @episodes = Episode.search(params[:search], params[:title], params[:description], params[:guests]).paginate(:per_page => 5, :page => params[:page])
+    @episodes = Episode.search(params[:search], params[:title], params[:description], params[:guests])
+    @latest = Episode.all
   end
 
   # GET /episodes/1
   # GET /episodes/1.json
   def show
+    @episodes = Episode.all
+    @latest = Episode.all
   end
 
   # GET /episodes/new
   def new
+    @episodes = Episode.all
+    @latest = Episode.all
     @episode = Episode.new
   end
 
   # GET /episodes/1/edit
   def edit
+    @episodes = Episode.all
+    @latest = Episode.all
   end
 
   # POST /episodes
@@ -62,6 +69,7 @@ class EpisodesController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_episode
       @episode = Episode.find(params[:id])
