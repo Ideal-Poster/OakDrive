@@ -19,7 +19,7 @@
 
 
           <ul class="nav navbar-nav navbar-left">
-            <li><%= link_to "EPISODES", root_path %></li>
+            <li><%= link_to "EPISODES", root_path, ({style: "color: grey; text-decoration: none;"} if current_page?(root_path))%></li>
             <li><a href="#">SUBSCRIBE</a></li>
             <li><a href="#">EVENTS</a></li>
             <li><a href="#">DONATE</a></li>
@@ -50,7 +50,7 @@
         <div class="sidebar-section">
           <h4 class="title">LATEST INSTALLMENTS</h4>
           <% @latest.sort_by { |i| i.episode_num }[-4..-1].reverse.each do |episode| %>
-            <p><%=link_to episode.title, episode_path(episode)%></p>
+            <p><%=link_to episode.title, episode_path(episode), {style: "color: #ffffff; text-decoration: none;"}%></p>
           <% end %>
         </div>
 
