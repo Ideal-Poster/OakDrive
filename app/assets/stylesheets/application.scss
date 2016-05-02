@@ -8,6 +8,7 @@
    src: url(/assets/KannadaMN.ttc) format("truetype");
  }
 
+
 body {
   color: white;
   background-color: #231F20;
@@ -27,8 +28,11 @@ h4 {
 }
 
 .logo {
+
   padding-right: 28px;
   border-right: 4px solid #ffffff;
+  height: 90px;
+
 }
 
 .navbar {
@@ -38,10 +42,23 @@ h4 {
   background-color: #231F20;
 }
 
-.nav.navbar-nav.navbar-left li a, .cp {
-  color: #ffffff;
+.nav.navbar-nav.navbar-left {
+  margin-top: -110px;
+  margin-left: 125px;
+  width: 600px;
 }
 
+.nav.navbar-nav.navbar-left li a {
+  color: #ffffff;
+  margin-right: 3px;
+
+
+}
+
+.nav.navbar-nav.navbar-left li {
+  position: static;
+
+}
 .nav.navbar-nav.navbar-left li a:hover {
   color: grey;
 }
@@ -63,6 +80,7 @@ h4 {
 
 .sidebar {
   width: 230px;
+//margin-top: -90px;
 }
 
 .search {
@@ -75,7 +93,6 @@ h4 {
 
 #search {
   color: black;
-  margin-top: -110px;
   height: 27px;
   width: 200px;
   border-radius: 8px;

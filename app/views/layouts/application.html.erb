@@ -9,15 +9,11 @@
 </head>
 <body>
   <div class="container-fluid">
-    <div>
-      <div class="hidden-xs hidden-sm navbar navbar-inverse navbar-top" role="navigation">
-        <div class="navbar-header">
-          <div class="navbar-brand navbar-brand-left">
-            <%= image_tag("Oakdrive_Logo.png", height: '90', alt: 'Site Logo', class: "logo") %>
-          </div>
-        </div>
 
+    <div class="hidden-xs navbar navbar-default navbar-static-top">
+      <%= image_tag("Oakdrive_Logo.png", height: '90', alt: 'Site Logo', class: "logo") %>
 
+        <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-left">
             <li><%= link_to "EPISODES", root_path, ({style: "color: grey; text-decoration: none;"} if current_page?(root_path))%></li>
             <li><a href="#">SUBSCRIBE</a></li>
@@ -25,14 +21,14 @@
             <li><a href="#">DONATE</a></li>
             <li><a href="#">CONTACT</a></li>
           </ul>
-
-      </div>
+        </div>
     </div>
+
     <div class="row">
 
       <%= yield %>
 
-      <div class="hidden-xs hidden-sm sidebar span-2 col-sm-2 pull-right">
+      <div class="hidden-xs sidebar span-2 col-sm-2 pull-right">
         <div class="sidebar-section search">
           <%= form_tag episodes_path, :method => "get" do %>
             <%= text_field_tag :search, params[:search], :placeholder => "search" %>
