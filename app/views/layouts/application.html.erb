@@ -6,7 +6,11 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= favicon_link_tag 'Oakdrive_Web_Logo.png' %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
 </head>
+
+
 <body>
   <div class="container-fluid">
 
@@ -16,17 +20,20 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-left">
             <li><%= link_to "EPISODES", root_path, ({style: "color: grey; text-decoration: none;"} if current_page?(root_path))%></li>
-            <li><a href="#">SUBSCRIBE</a></li>
-            <li><a href="#">EVENTS</a></li>
-            <li><a href="#">DONATE</a></li>
-            <li><a href="#">CONTACT</a></li>
+            <li><%= link_to "SUBSCRIBE", '/pages/subscribe', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/subscribe'))%></li>
+            <li><%= link_to "EVENTS", events_path, ({style: "color: grey; text-decoration: none;"} if current_page?(events_path))%></li>
+            <li><%= link_to "DONATE", '/pages/donate', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/donate'))%></li>
+            <li><%= link_to "CONTACT", '/pages/contact', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/contact'))%></li>
+            <li><%= link_to "ABOUT", '/pages/about', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/about'))%></li>
+
           </ul>
         </div>
     </div>
 
     <div class="row">
-
-      <%= yield %>
+      <div class="col-sm-4" id="content-container">
+        <%= yield %>
+      </div>
 
       <div class="hidden-xs sidebar span-2 col-sm-2 pull-right">
         <div class="sidebar-section search">
