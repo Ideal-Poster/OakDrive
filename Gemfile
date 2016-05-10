@@ -36,7 +36,7 @@ gem 'guard-livereload', group: :development
 gem 'rack-livereload', group: :development
 gem 'guard-bundler', group: :development
 
-
+gem 'jplayer-rails', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
