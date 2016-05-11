@@ -19,7 +19,7 @@
 
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-left">
-            <li><%= link_to "EPISODES", root_path, ({style: "color: grey; text-decoration: none;"} if current_page?(root_path))%></li>
+            <li><%= link_to "EPISODES", episodes_path, ({style: "color: grey; text-decoration: none;"} if params[:controller] == 'episodes' && %w(index show).include?(params[:action]))%></li>
             <li><%= link_to "SUBSCRIBE", '/pages/subscribe', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/subscribe'))%></li>
             <li><%= link_to "EVENTS", events_path, ({style: "color: grey; text-decoration: none;"} if current_page?(events_path))%></li>
             <li><%= link_to "DONATE", '/pages/donate', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/donate'))%></li>
@@ -34,7 +34,6 @@
       <div class="col-sm-4" id="content-container">
         <%= yield %>
       </div>
-
       <div class="hidden-xs sidebar span-2 col-sm-2 pull-right">
         <div class="sidebar-section search">
           <%= form_tag episodes_path, :method => "get" do %>
@@ -62,9 +61,20 @@
         </div>
       </div>
     </div>
-    <%= %>
-    <div class="row" id="footer">
-      <p> < Prev PUBLISHED ON:   FROM:   PRODUCER: MOSIAH RASHAAD Next ></p>
-    </div>
+    <% if params[:controller] == 'episodes' && %w(show).include?(params[:action]) %>
+      <div id="footer">
+          <p id="prev">< Prev</p>
+          <p id="next">Next ></p>
+
+          <p id="center">
+            <span id="published">PUBLISHED ON: <%= @episode.created_at.strftime("%m.%d.%Y") %></span>
+            <span id="season">FROM: SEASON 01</span>
+            <span id="producer">PRODUCER: MOSIAH RASHAAD</span>
+          </p>
+
+      </div>
+
+      <% end %>
+
 </body>
 </html>

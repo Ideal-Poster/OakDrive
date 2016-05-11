@@ -252,10 +252,39 @@ a {
 
 //footer
 
-#footer {padding-top: 30px;
-  text-align: center;
+#footer {
+  padding-top: 40px;
   width: 100%;
   bottom: 0;
-  text-align: center;
   border-top: 1px solid white;
+  display: grid;
+}
+
+#center {
+  text-align: center;
+  margin-top: -30px;
+  margin-right: 60px;
+  margin-left: 60px;
+}
+
+#next {
+  margin-top: -30px;
+  text-align: right;
+  position: absolute;
+  right: 45px;
+}
+
+#published {
+  margin-right:40px;
+  width: 300px;
+}
+
+#season {
+  width:150px;
+  margin-right:40px;
+}
+
+#producer {
+  width: 260px;
+
 }
