@@ -1,5 +1,16 @@
-  <% @episodes.each do |episode| %>
-    <div class="col-xs-6">
-      <%= link_to image_tag(episode.image.url(:thumb)), episode %>
-    </div>
-  <% end %>
+
+
+  <h3 class="title-spacing index-alignment" style="margin-bottom:30px;">EPISODES<span style="font-size:17px;letter-spacing:4px;">S-01</span></h3>
+
+    <% @episodes.each do |episode| %>
+      <div class="index-alignment">
+        <%= link_to image_tag(episode.image.url(:medium)), episode %>
+      </div>
+      <h3 class="index-alignment title-spacing">
+        <%= episode.title %>
+      </h3>
+
+      <p class="index-alignment"><%= episode.description %></p>
+      <br>
+      <br>
+    <% end %>

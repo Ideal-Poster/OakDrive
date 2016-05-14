@@ -21,11 +21,10 @@
           <ul class="nav navbar-nav navbar-left">
             <li><%= link_to "EPISODES", episodes_path, ({style: "color: grey; text-decoration: none;"} if params[:controller] == 'episodes' && %w(index show).include?(params[:action]))%></li>
             <li><%= link_to "SUBSCRIBE", '/pages/subscribe', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/subscribe'))%></li>
-            <li><%= link_to "EVENTS", events_path, ({style: "color: grey; text-decoration: none;"} if current_page?(events_path))%></li>
             <li><%= link_to "DONATE", '/pages/donate', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/donate'))%></li>
-            <li><%= link_to "CONTACT", '/pages/contact', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/contact'))%></li>
+            <li><%= link_to "EVENTS", events_path, ({style: "color: grey; text-decoration: none;"} if current_page?(events_path))%></li>
             <li><%= link_to "ABOUT", '/pages/about', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/about'))%></li>
-
+            <li><%= link_to "CONTACT", '/pages/contact', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/contact'))%></li>
           </ul>
         </div>
     </div>
@@ -52,12 +51,13 @@
         <div class="sidebar-section">
           <h4 class="title">LATEST INSTALLMENTS</h4>
           <% @latest.sort_by { |i| i.episode_num }[-4..-1].reverse.each do |episode| %>
-            <p><%=link_to episode.title, episode_path(episode), {style: "color: #ffffff; text-decoration: none;"}%></p>
+            <p><%=link_to title_case(episode.title, 'a an the of in and'), episode_path(episode), {style: "color: #ffffff; text-decoration: none;"}%></p>
           <% end %>
         </div>
 
         <div class="sidebar-section">
           <h4 class="title">ARCHIVES</h4>
+          <p>Season 01</p>
         </div>
       </div>
     </div>
@@ -66,15 +66,25 @@
           <p id="prev">< Prev</p>
           <p id="next">Next ></p>
 
-          <p id="center">
+          <p id="footer-center">
             <span id="published">PUBLISHED ON: <%= @episode.created_at.strftime("%m.%d.%Y") %></span>
             <span id="season">FROM: SEASON 01</span>
             <span id="producer">PRODUCER: MOSIAH RASHAAD</span>
           </p>
-
       </div>
-
       <% end %>
 
+      <div class="mobile-search hidden-sm hidden-md hidden-lg hidden-xl">
+        <%= form_tag episodes_path, :method => "get" do %>
+          <%= text_field_tag :search, params[:search], :placeholder => "search" %>
+        <% end %>
+
+        <h4 id="social-mobile">SOCIAL ISH</h4>
+        <i class="fa fa-lg fa-music" aria-hidden="true"></i>
+        <i class="fa fa-lg fa-twitter" aria-hidden="true"></i>
+        <i class="fa fa-lg fa-facebook" aria-hidden="true"></i>
+        <i class="fa fa-lg fa-instagram" aria-hidden="true"></i>
+      </div>
+    </div>
 </body>
 </html>

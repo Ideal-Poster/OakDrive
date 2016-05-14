@@ -1,6 +1,11 @@
-<div class="col-sm-4" id="content-container">
 
-  <div class="row">
+    <h3 class="show-title title-spacing index-alignment"><%= @episode.title %></h3>
+    <div class="index-alignment">
+      <%= image_tag(@episode.image.url(:medium)) %>
+    </div>
+
+    <div class="player">
+
     <div id="jquery_jplayer_1" class="jp-jplayer"></div>
     <div id="jp_container_1" class="jp-audio">
       <div class="jp-type-single">
@@ -24,7 +29,7 @@
               <div class="jp-volume-bar-value"></div>
             </div>
 
-          <div class="jp-no-solution">
+          <div class="jp-no-solution index-alignment">
             <span>Update Required</span>
             To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
           </div>
@@ -32,7 +37,16 @@
       </div>
     </div>
   </div>
-</div>
+    
+    <p class="index-alignment">
+      <%= @episode.description %>
+    </p>
+
+    <p class="index-alignment">
+      MUSIC/SHOW CREDITS
+    </p>
+
+
 
 
 <script type="text/javascript">

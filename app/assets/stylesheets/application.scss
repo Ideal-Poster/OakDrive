@@ -19,6 +19,7 @@ body {
 h4 {
   color: #ffffff;
   font-size: 16px;
+
 }
 
 .episodes-container {
@@ -88,8 +89,10 @@ h4 {
 
 }
 
-.search {
-  margin-top: 10px;
+.mobile-search {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .container-fluid {
@@ -100,9 +103,11 @@ h4 {
   color: black;
   height: 27px;
   width: 200px;
-  border-radius: 8px;
+  border-radius: 13px;
   padding-left: 10px;
   border: none;
+  margin-top: 10px;
+
 }
 
 
@@ -149,15 +154,17 @@ a {
 	position: relative;
 	background: black;
 	-webkit-box-shadow:  0px 1px 1px 0px rgba(0, 0, 0, .1);
-    box-shadow:  0px 1px 1px 0px rgba(0, 0, 0, .1);
-    border-radius: 3px;
+  box-shadow:  0px 1px 1px 0px rgba(0, 0, 0, .1);
+  border-radius: 3px;
 	overflow: hidden;
 	margin-top: 10px;
+
 }
 
 .jp-jplayer, .jp-audio {
-    width: 420px;
-    margin: 50px auto;
+    width: 300px;
+    margin-bottom: 30px;
+    position: relative;
 }
 
 .jp-controls {
@@ -229,7 +236,7 @@ a {
     position: absolute;
     right: 133px;
     top: 15px;
-    width: 210px;
+    width: 110px;
     -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2) inset;
     box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2) inset;
 }
@@ -250,6 +257,7 @@ a {
     text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
 }
 
+
 //footer
 
 #footer {
@@ -257,21 +265,29 @@ a {
   width: 100%;
   bottom: 0;
   border-top: 1px solid white;
-  display: grid;
+  margin-bottom: 70px;
+
 }
 
-#center {
+#footer-center {
   text-align: center;
   margin-top: -30px;
   margin-right: 60px;
   margin-left: 60px;
+
 }
 
 #next {
   margin-top: -30px;
   text-align: right;
-  position: absolute;
-  right: 45px;
+  position: relative;
+  right: 0px;
+}
+#prev {
+  margin-top: -30px;
+  text-align: left;
+  position: relative;
+  left: 0px;
 }
 
 #published {
@@ -287,4 +303,50 @@ a {
 #producer {
   width: 260px;
 
+}
+//show page.
+.show-title {
+  margin-bottom: 30px;
+}
+
+.title-spacing {
+  letter-spacing: 12px;
+}
+
+
+
+//index
+
+@media (max-width: 48em){
+  .index-alignment {
+    text-align: center;
+  }
+
+  .jp-jplayer, .jp-audio {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+  .title {
+    text-align: none;
+  }
+
+  #search {
+    width: 240px;
+  }
+
+}
+
+
+//mobile
+
+#social-mobile {
+  margin-top: 10px;
+  border-bottom: 1px solid white;
+  width: 240px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 15px;
+  padding-top: 5px;
 }
