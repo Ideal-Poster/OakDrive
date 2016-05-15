@@ -13,6 +13,26 @@
 
 <body>
   <div class="container-fluid">
+    <div class="dropdown hidden-sm hidden-md hidden-lg">
+
+      <div class="dropbtn">
+        <div class="icon-bar"></div>
+        <div class="icon-bar"></div>
+        <div class="icon-bar"></div>
+      </div>
+
+      <div class="dropdown-container">
+        <div class="dropdown-content">
+          <li><%= link_to "EPISODES", episodes_path, ({style: "color: grey; text-decoration: none;"} if params[:controller] == 'episodes' && %w(index show).include?(params[:action]))%></li>
+          <li><%= link_to "SUBSCRIBE", '/pages/subscribe', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/subscribe'))%></li>
+          <li><%= link_to "DONATE", '/pages/donate', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/donate'))%></li>
+          <li><%= link_to "EVENTS", events_path, ({style: "color: grey; text-decoration: none;"} if current_page?(events_path))%></li>
+          <li><%= link_to "ABOUT", '/pages/about', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/about'))%></li>
+          <li><%= link_to "CONTACT", '/pages/contact', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/contact'))%></li>
+        </div>
+      </div>
+
+    </div>
 
     <div class="hidden-xs navbar navbar-default navbar-static-top">
       <%= image_tag("Oakdrive_Logo.png", height: '90', alt: 'Site Logo', class: "logo") %>
