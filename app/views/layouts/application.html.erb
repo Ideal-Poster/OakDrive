@@ -55,8 +55,8 @@
       </div>
       <div class="hidden-xs sidebar span-2 col-sm-2 pull-right">
         <div class="sidebar-section search">
-          <%= form_tag episodes_path, :method => "get" do %>
-            <%= text_field_tag :search, params[:search], :placeholder => "search" %>
+          <%= form_tag episodes_path, method: :get do %>
+            <%= text_field_tag :query, params[:query], :placeholder => "search" %>
           <% end %>
         </div>
 
@@ -95,8 +95,8 @@
       <% end %>
 
       <div class="mobile-search hidden-sm hidden-md hidden-lg hidden-xl">
-        <%= form_tag episodes_path, :method => "get" do %>
-          <%= text_field_tag :search, params[:search], :placeholder => "search" %>
+        <%= form_tag episodes_path, method: :get do %>
+          <%= text_field_tag :query, params[:query], :placeholder => "search" %>
         <% end %>
 
         <h4 id="social-mobile">SOCIAL ISH</h4>

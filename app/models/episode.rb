@@ -6,7 +6,9 @@ class Episode < ActiveRecord::Base
   validates_attachment :mp3,
       :content_type => { :content_type => ["audio/mpeg", "audio/mp3"] },
       :file_name => { :matches => [/mp3\Z/] }
-  def self.search(search, title, description, guests)
-    where("title LIKE ? OR description LIKE ? OR guests LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
-  end
+      def self.text_search(query)
+        if query.present?
+          where("title @@ :q or description @@ :q or guests @@ :q", q: query)
+        end
+      end
 end

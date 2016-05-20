@@ -4,7 +4,9 @@ class EpisodesController < ApplicationController
   # GET /episodes
   # GET /episodes.json
   def index
-    @episodes = Episode.search(params[:search], params[:title], params[:description], params[:guests])
+
+    @episodes = Episode.text_search(params[:query])
+    @episodes = Episode.all if @episodes == nil
     @latest = Episode.all
   end
 
