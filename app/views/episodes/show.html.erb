@@ -58,7 +58,7 @@ $(document).ready(function(){
    $("#jquery_jplayer_1").jPlayer({
      ready: function () {
        $(this).jPlayer("setMedia", {
-         m4a: "<%= @episode.mp3.to_s %>"
+         m4a: "<%= @episode.mp3 %>"
        });
      },
      cssSelectorAncestor: "#jp_container_1",
