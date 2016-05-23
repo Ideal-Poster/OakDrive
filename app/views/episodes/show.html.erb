@@ -1,5 +1,4 @@
-
-    <h3 class="show-title title-spacing index-alignment"><%= @episode.title %></h3>
+  <h3 class="show-title title-spacing index-alignment"><%= @episode.title %></h3>
     <div class="index-alignment">
       <%= image_tag(@episode.image.url(:medium)) %>
     </div>
@@ -37,29 +36,37 @@
       </div>
     </div>
 
+  <div class="description-container">
 
-    <p class="index-alignment">
+
+    <a href="<%= @episode.mp3 %>">Download</a>
+    <p>
       <%= @episode.description %>
     </p>
 
-    <p class="index-alignment">
+    <p>
       MUSIC/SHOW CREDITS
     </p>
+
+  </div>
 
 
 
 
 <script type="text/javascript">
 $(document).ready(function(){
-    $("#jquery_jplayer_1").jPlayer({
-      ready: function () {
-        $(this).jPlayer("setMedia", {
-          mp3: "<%= @episode.mp3 %>",
-          oga: "<%= @episode.mp3 %>"
-        });
-      },
-      swfPath: "/js",
-      supplied: "mp3,oga"
-    });
-  });
+   $("#jquery_jplayer_1").jPlayer({
+     ready: function () {
+       $(this).jPlayer("setMedia", {
+         m4a: "<%= @episode.mp3.to_s %>"
+       });
+     },
+     cssSelectorAncestor: "#jp_container_1",
+     swfPath: "/js",
+     supplied: "m4a",
+     keyEnabled: true,
+     remainingDuration: true
+   });
+ });
+
 </script>

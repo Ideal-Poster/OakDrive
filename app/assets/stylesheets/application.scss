@@ -74,6 +74,7 @@ h4 {
   border-bottom: 1px solid #ffffff;
   width: 200px;
   padding-bottom: 15px;
+  margin-bottom: 18px;
 }
 
 .sidebar-section {
@@ -106,7 +107,7 @@ h4 {
   color: black;
   height: 27px;
   width: 200px;
-  border-radius: 13px;
+  border-radius: 10px;
   padding-left: 10px;
   border: none;
   margin-top: 10px;
@@ -188,7 +189,7 @@ a {
 }
 
 .jp-play,.jp-pause {
-    width: 60px;
+    width: 45px;
     height: 40px;
     display: inline-block;
     text-align: center;
@@ -266,47 +267,66 @@ a {
 
 #footer {
   padding-top: 40px;
-  width: 100%;
   bottom: 0;
   border-top: 1px solid white;
   margin-bottom: 70px;
-
 }
 
 #footer-center {
   text-align: center;
   margin-top: -30px;
-  margin-right: 60px;
-  margin-left: 60px;
-
+  margin-right: auto;
+  margin-left: auto;
+  width: 80%;
 }
+a:hover {
+  text-decoration: none;
+}
+
 
 #next {
   margin-top: -30px;
-  text-align: right;
+  width: 60px;
+  height: 20px;
   position: relative;
-  right: 0px;
+  right: 0;
+  left: auto;
+  color: white;
+  margin-left: auto;
 }
 #prev {
   margin-top: -30px;
   text-align: left;
   position: relative;
   left: 0px;
+  right: auto;
+  width: 65px;
+  color: white;
+
+
 }
 
 #published {
-  margin-right:40px;
+  padding-left: 20px;
+  padding-right: 20px;
   width: 300px;
+  display: inline;
+
 }
 
 #season {
   width:150px;
-  margin-right:40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: inline;
+
 }
 
 #producer {
   width: 260px;
-
+  display: inline;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 //show page.
 .show-title {
@@ -337,6 +357,12 @@ a {
 
   #search {
     width: 240px;
+  }
+
+  .description-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
   }
 
 }
@@ -437,4 +463,8 @@ a {
   font-size: 20px;
   margin-left: 14px;
   margin-right: 14px;
+}
+
+.description-container {
+
 }
