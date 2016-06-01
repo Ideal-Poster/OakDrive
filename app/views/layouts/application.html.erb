@@ -13,7 +13,7 @@
 
 <body>
   <div class="container-fluid">
-    <div class="dropdown hidden-sm hidden-md hidden-lg">
+    <div class="dropdown  hidden-md hidden-lg">
 
       <div class="dropbtn">
         <div class="icon-bar"></div>
@@ -23,6 +23,7 @@
 
       <div class="dropdown-container">
         <div class="dropdown-content">
+          <li><%= link_to "RECENT", '/pages/recent', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/donate'))%></li>
           <li><%= link_to "EPISODES", episodes_path, ({style: "color: grey; text-decoration: none;"} if params[:controller] == 'episodes' && %w(index show).include?(params[:action]))%></li>
           <li><%= link_to "SUBSCRIBE", '/pages/subscribe', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/subscribe'))%></li>
           <li><%= link_to "DONATE", '/pages/donate', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/donate'))%></li>
@@ -34,11 +35,12 @@
 
     </div>
 
-    <div class="hidden-xs navbar navbar-default navbar-static-top">
+    <div class="hidden-xs hidden-sm navbar navbar-default navbar-static-top">
       <%= image_tag("Oakdrive_Logo.png", height: '90', alt: 'Site Logo', class: "logo") %>
 
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-left">
+            <li><%= link_to "RECENT", '/pages/recent', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/recent'))%></li>
             <li><%= link_to "EPISODES", episodes_path, ({style: "color: grey; text-decoration: none;"} if params[:controller] == 'episodes' && %w(index show).include?(params[:action]))%></li>
             <li><%= link_to "SUBSCRIBE", '/pages/subscribe', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/subscribe'))%></li>
             <li><%= link_to "DONATE", '/pages/donate', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/donate'))%></li>
@@ -49,38 +51,45 @@
         </div>
     </div>
 
-    <div class="row">
-      <div class="col-sm-4" id="content-container">
+
+      <div class="row">
+
         <%= yield %>
+
+
+        <% unless params[:page] == 'recent' %>
+
+        <div class="hidden-xs hidden-sm sidebar col-xs-2 pull-right">
+          <div class="sidebar-section search">
+            <%= form_tag episodes_path, method: :get do %>
+              <%= text_field_tag :query, params[:query], :placeholder => "search" %>
+            <% end %>
+          </div>
+
+          <div class="sidebar-section">
+            <h4 class="title">SOCIAL ISH</h4>
+            <i class="fa fa-lg fa-music" aria-hidden="true"></i>
+            <i class="fa fa-lg fa-twitter" aria-hidden="true"></i>
+            <i class="fa fa-lg fa-facebook" aria-hidden="true"></i>
+            <i class="fa fa-lg fa-instagram" aria-hidden="true"></i>
+          </div>
+
+          <div class="sidebar-section">
+            <h4 class="title">LATEST INSTALLMENTS</h4>
+            <% @latest.sort_by { |i| i.episode_num }[-4..-1].reverse.each do |episode| %>
+              <p><%=link_to title_case(episode.title, 'a an the of in and'), episode_path(episode), {style: "color: #ffffff; text-decoration: none;"}%></p>
+            <% end %>
+          </div>
+
+          <div class="sidebar-section">
+            <h4 class="title">ARCHIVES</h4>
+            <p>Season 01</p>
+          </div>
+        </div>
       </div>
-      <div class="hidden-xs sidebar span-2 col-sm-2 pull-right">
-        <div class="sidebar-section search">
-          <%= form_tag episodes_path, method: :get do %>
-            <%= text_field_tag :query, params[:query], :placeholder => "search" %>
-          <% end %>
-        </div>
+      <% end %>
+    <!--footer -->
 
-        <div class="sidebar-section">
-          <h4 class="title">SOCIAL ISH</h4>
-          <i class="fa fa-lg fa-music" aria-hidden="true"></i>
-          <i class="fa fa-lg fa-twitter" aria-hidden="true"></i>
-          <i class="fa fa-lg fa-facebook" aria-hidden="true"></i>
-          <i class="fa fa-lg fa-instagram" aria-hidden="true"></i>
-        </div>
-
-        <div class="sidebar-section">
-          <h4 class="title">LATEST INSTALLMENTS</h4>
-          <% @latest.sort_by { |i| i.episode_num }[-4..-1].reverse.each do |episode| %>
-            <p><%=link_to title_case(episode.title, 'a an the of in and'), episode_path(episode), {style: "color: #ffffff; text-decoration: none;"}%></p>
-          <% end %>
-        </div>
-
-        <div class="sidebar-section">
-          <h4 class="title">ARCHIVES</h4>
-          <p>Season 01</p>
-        </div>
-      </div>
-    </div>
     <% if params[:controller] == 'episodes' && %w(show).include?(params[:action]) %>
 
 
@@ -100,12 +109,12 @@
           <% end %>
         </div>
           <p id="footer-center">
-            <br class="hidden-sm hidden-md hidden-lg hidden-xl">
+            <br class=" hidden-md hidden-lg hidden-xl">
             <span id="published">PUBLISHED ON: <%= @episode.created_at.strftime("%m.%d.%Y") %></span>
 
-            <br class="hidden-sm hidden-md hidden-lg hidden-xl">
+            <br class=" hidden-md hidden-lg hidden-xl">
             <span id="season">FROM: SEASON 01</span>
-            <br class="hidden-sm hidden-md hidden-lg hidden-xl">
+            <br class=" hidden-md hidden-lg hidden-xl">
 
             <span id="producer">PRODUCER: MOSIAH RASHAAD</span>
           </p>
@@ -115,7 +124,7 @@
       </div>
       <% end %>
 
-      <div class="mobile-search hidden-sm hidden-md hidden-lg hidden-xl">
+      <div class="mobile-search  hidden-md hidden-lg hidden-xl">
         <%= form_tag episodes_path, method: :get do %>
           <%= text_field_tag :query, params[:query], :placeholder => "search" %>
         <% end %>

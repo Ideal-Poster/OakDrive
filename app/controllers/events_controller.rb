@@ -7,7 +7,6 @@ class EventsController < ApplicationController
     @latest = Episode.all
     @events = Event.all
   end
-
   # GET /events/1
   # GET /events/1.json
   def show

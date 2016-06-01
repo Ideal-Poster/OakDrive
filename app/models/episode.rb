@@ -1,5 +1,5 @@
 class Episode < ActiveRecord::Base
-  has_attached_file :image, styles: { medium: "300x300>", thumb: "240x240>" }
+  has_attached_file :image, styles: { medium: "300x300>", thumb: "180x180>" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   has_attached_file :mp3

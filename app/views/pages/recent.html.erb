@@ -1,0 +1,38 @@
+<%= form_tag episodes_path, method: :get do %>
+  <%= text_field_tag :query, params[:query], placeholder: "search",class: "recent-search hidden-xs hidden-sm" %>
+<% end %>
+
+
+<div class="col-sm-12" id="content-container">
+  <h3 class="title-spacing index-alignment"
+      style="margin-bottom:30px;
+              margin-top:-17px;">MOST RECENT
+  </h3>
+
+  <div class="recent-container">
+    <div class="recent-spotlight">
+      <%= image_tag(@episodes.first.image.url(:medium))  %>
+    <h3 class="index-alignment title-spacing">  <%= @episodes.first.title %></h3>
+    <p><%= @episodes.first.description %></p>
+    </div>
+
+    <div class="box box2"></div>
+
+    <div class="recent">
+      <% @episodes.each do |episode| %>
+        <div class="recent-spacing">
+          <%= link_to image_tag(episode.image.url(:thumb)), episode %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+
+<div class="sidebar-section hidden-xs hidden-sm pull-right">
+  <h4 class="title">SOCIAL ISH</h4>
+  <i class="fa fa-lg fa-music" aria-hidden="true"></i>
+  <i class="fa fa-lg fa-twitter" aria-hidden="true"></i>
+  <i class="fa fa-lg fa-facebook" aria-hidden="true"></i>
+  <i class="fa fa-lg fa-instagram" aria-hidden="true"></i>
+</div>

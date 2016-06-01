@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   root "episodes#index"
 
    get "/pages/:page" => "pages#show"
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

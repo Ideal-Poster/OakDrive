@@ -1,0 +1,51 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.recent-spotlight, .recent-spacing, .recent {
+}
+
+.recent-container {
+  width: 100%;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-pack: center;
+  -moz-box-align: center;
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+}
+
+.recent-spotlight {
+  width: 300px;
+  margin-top: 0px;
+  vertical-align:top;
+  display: inline-block;
+
+}
+
+.recent-spacing {
+  margin: 0px 0px 40px 20px;
+  display: inline-block;
+
+}
+
+.recent {
+  width: 660px;
+  text-align: right;
+  display: inline-block;
+  margin-top: -40px;
+}
+
+
+.recent-search{
+  display: block;
+  margin-left: auto;
+  margin-right: 15px;
+  right: 0;
+}
+
+.box2 {
+    -moz-box-flex: 1;
+    -webkit-box-flex: 1;
+}
