@@ -26,7 +26,6 @@
           <li><%= link_to "RECENT", '/pages/recent', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/donate'))%></li>
           <li><%= link_to "EPISODES", episodes_path, ({style: "color: grey; text-decoration: none;"} if params[:controller] == 'episodes' && %w(index show).include?(params[:action]))%></li>
           <li><%= link_to "SUBSCRIBE", '/pages/subscribe', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/subscribe'))%></li>
-          <li><%= link_to "DONATE", '/pages/donate', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/donate'))%></li>
           <li><%= link_to "EVENTS", events_path, ({style: "color: grey; text-decoration: none;"} if current_page?(events_path))%></li>
           <li><%= link_to "ABOUT", '/pages/about', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/about'))%></li>
           <li><%= link_to "CONTACT", '/pages/contact', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/contact'))%></li>
@@ -43,8 +42,7 @@
             <li><%= link_to "RECENT", '/pages/recent', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/recent'))%></li>
             <li><%= link_to "EPISODES", episodes_path, ({style: "color: grey; text-decoration: none;"} if params[:controller] == 'episodes' && %w(index show).include?(params[:action]))%></li>
             <li><%= link_to "SUBSCRIBE", '/pages/subscribe', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/subscribe'))%></li>
-            <li><%= link_to "DONATE", '/pages/donate', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/donate'))%></li>
-            <li><%= link_to "EVENTS", events_path, ({style: "color: grey; text-decoration: none;"} if current_page?(events_path))%></li>
+              <li><%= link_to "EVENTS", events_path, ({style: "color: grey; text-decoration: none;"} if current_page?(events_path))%></li>
             <li><%= link_to "ABOUT", '/pages/about', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/about'))%></li>
             <li><%= link_to "CONTACT", '/pages/contact', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/contact'))%></li>
           </ul>
@@ -69,9 +67,16 @@
           <div class="sidebar-section">
             <h4 class="title">SOCIAL ISH</h4>
             <i class="fa fa-lg fa-music" aria-hidden="true"></i>
-            <i class="fa fa-lg fa-twitter" aria-hidden="true"></i>
-            <i class="fa fa-lg fa-facebook" aria-hidden="true"></i>
-            <i class="fa fa-lg fa-instagram" aria-hidden="true"></i>
+
+            <a href="https://twitter.com/oakdrivepodcast">
+              <i class="fa fa-lg fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.facebook.com/oakdrivepodcast">
+              <i class="fa fa-lg fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.instagram.com/oakdrivepodcast/">
+              <i class="fa fa-lg fa-instagram" aria-hidden="true"></i>
+            </a>
           </div>
 
           <div class="sidebar-section">
@@ -131,9 +136,16 @@
 
         <h4 id="social-mobile">SOCIAL ISH</h4>
         <i class="fa fa-lg fa-music" aria-hidden="true"></i>
-        <i class="fa fa-lg fa-twitter" aria-hidden="true"></i>
-        <i class="fa fa-lg fa-facebook" aria-hidden="true"></i>
-        <i class="fa fa-lg fa-instagram" aria-hidden="true"></i>
+
+        <a href="https://twitter.com/oakdrivepodcast">
+          <i class="fa fa-lg fa-twitter" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.facebook.com/oakdrivepodcast">
+          <i class="fa fa-lg fa-facebook" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.instagram.com/oakdrivepodcast/">
+          <i class="fa fa-lg fa-instagram" aria-hidden="true"></i>
+        </a>
       </div>
     </div>
 </body>

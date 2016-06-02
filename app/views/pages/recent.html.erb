@@ -14,11 +14,12 @@
       <%= image_tag(@episodes.first.image.url(:medium))  %>
     <h3 class="index-alignment title-spacing">  <%= @episodes.first.title %></h3>
     <p><%= @episodes.first.description %></p>
+    <br>
     </div>
 
-    <div class="box box2"></div>
+    <div class="hidden-xs hidden-sm box box2"></div>
 
-    <div class="recent">
+    <div class="hidden-xs hidden-sm recent">
       <% @episodes.each do |episode| %>
         <div class="recent-spacing">
           <%= link_to image_tag(episode.image.url(:thumb)), episode %>
@@ -26,13 +27,27 @@
       <% end %>
     </div>
   </div>
-
 </div>
 
 <div class="sidebar-section hidden-xs hidden-sm pull-right">
   <h4 class="title">SOCIAL ISH</h4>
   <i class="fa fa-lg fa-music" aria-hidden="true"></i>
-  <i class="fa fa-lg fa-twitter" aria-hidden="true"></i>
-  <i class="fa fa-lg fa-facebook" aria-hidden="true"></i>
-  <i class="fa fa-lg fa-instagram" aria-hidden="true"></i>
+
+  <a href="https://twitter.com/oakdrivepodcast">
+    <i class="fa fa-lg fa-twitter" aria-hidden="true"></i>
+  </a>
+  <a href="https://www.facebook.com/oakdrivepodcast">
+    <i class="fa fa-lg fa-facebook" aria-hidden="true"></i>
+  </a>
+  <a href="https://www.instagram.com/oakdrivepodcast/">
+    <i class="fa fa-lg fa-instagram" aria-hidden="true"></i>
+  </a>
 </div>
+
+<% @episodes.sort.each do |episode| %>
+
+  <div class="index-alignment hidden-md hidden-lg hidden-xl ">
+    <%= link_to image_tag(episode.image.url(:thumb)), episode %>
+  </div>
+  <br>
+<% end %>
