@@ -8,18 +8,18 @@
 @font-face {
   font-family: "Kannada MN";
   src: url('/assets/KannadaMN.woff') format("truetype");
-
 }
 
 
 body {
   color: white;
-  background-color: #231F20;
+  background: #231F20;
   font-family: 'Khula', sans-serif;
   font-weight: 500;
   letter-spacing: 3px;
   padding:0px 30px 0px 30px;
 }
+
 
 a, a:hover {
   color: white;
@@ -259,8 +259,6 @@ a:hover {
   .description{
     max-width: 300px;
   }
-
-
 
 }
 

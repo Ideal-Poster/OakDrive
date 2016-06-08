@@ -1,5 +1,4 @@
 <div class="col-md-4" id="content-container">
-
   <h3 class="title-spacing index-alignment" style="margin-bottom:30px;">EPISODES<span style="font-size:17px;letter-spacing:4px;">S-01</span></h3>
 
     <% @episodes.sort.each do |episode| %>
@@ -9,6 +8,7 @@
       <h3 class="index-alignment title-spacing">
         <%= episode.title %>
       </h3>
+      <%= params[:status] %>
 
       <p class="description"><%= episode.description %></p>
       <br>

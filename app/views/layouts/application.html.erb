@@ -10,53 +10,55 @@
 	<script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
 </head>
 
+  <body>
+    <% unless current_page? root_path %>
+        <div class="container-fluid">
+          <div class="dropdown  hidden-md hidden-lg">
 
-<body>
-  <div class="container-fluid">
-    <div class="dropdown  hidden-md hidden-lg">
+          <div class="dropbtn">
+            <div class="icon-bar"></div>
+            <div class="icon-bar"></div>
+            <div class="icon-bar"></div>
+          </div>
 
-      <div class="dropbtn">
-        <div class="icon-bar"></div>
-        <div class="icon-bar"></div>
-        <div class="icon-bar"></div>
-      </div>
-
-      <div class="dropdown-container">
-        <div class="dropdown-content">
-          <li><%= link_to "RECENT", '/pages/recent', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/donate'))%></li>
-          <li><%= link_to "EPISODES", episodes_path, ({style: "color: grey; text-decoration: none;"} if params[:controller] == 'episodes' && %w(index show).include?(params[:action]))%></li>
-          <li><%= link_to "SUBSCRIBE", '/pages/subscribe', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/subscribe'))%></li>
-          <li><%= link_to "EVENTS", events_path, ({style: "color: grey; text-decoration: none;"} if current_page?(events_path))%></li>
-          <li><%= link_to "ABOUT", '/pages/about', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/about'))%></li>
-          <li><%= link_to "CONTACT", '/pages/contact', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/contact'))%></li>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="hidden-xs hidden-sm navbar navbar-default navbar-static-top">
-      <%= image_tag("Oakdrive_Logo.png", height: '90', alt: 'Site Logo', class: "logo") %>
-
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-left">
-            <li><%= link_to "RECENT", '/pages/recent', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/recent'))%></li>
-            <li><%= link_to "EPISODES", episodes_path, ({style: "color: grey; text-decoration: none;"} if params[:controller] == 'episodes' && %w(index show).include?(params[:action]))%></li>
-            <li><%= link_to "SUBSCRIBE", '/pages/subscribe', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/subscribe'))%></li>
+          <div class="dropdown-container">
+            <div class="dropdown-content">
+              <li><%= link_to "RECENT", '/recent', ({style: "color: grey; text-decoration: none;"} if current_page?('/recent'))%></li>
+              <li><%= link_to "EPISODES", episodes_path, ({style: "color: grey; text-decoration: none;"} if params[:controller] == 'episodes' && %w(index show).include?(params[:action]))%></li>
+              <li><%= link_to "SUBSCRIBE", '/subscribe', ({style: "color: grey; text-decoration: none;"} if current_page?('/subscribe'))%></li>
               <li><%= link_to "EVENTS", events_path, ({style: "color: grey; text-decoration: none;"} if current_page?(events_path))%></li>
-            <li><%= link_to "ABOUT", '/pages/about', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/about'))%></li>
-            <li><%= link_to "CONTACT", '/pages/contact', ({style: "color: grey; text-decoration: none;"} if current_page?('/pages/contact'))%></li>
-          </ul>
+              <li><%= link_to "ABOUT", '/about', ({style: "color: grey; text-decoration: none;"} if current_page?('/about'))%></li>
+              <li><%= link_to "CONTACT", '/contact', ({style: "color: grey; text-decoration: none;"} if current_page?('/contact'))%></li>
+            </div>
+          </div>
         </div>
-    </div>
 
+        <div class="hidden-xs hidden-sm navbar navbar-default navbar-static-top">
+          <%= image_tag("Oakdrive_Logo.png", height: '90', alt: 'Site Logo', class: "logo") %>
+
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left">
+              <li><%= link_to "RECENT", '/recent', ({style: "color: grey; text-decoration: none;"} if current_page?('/recent'))%></li>
+              <li><%= link_to "EPISODES", episodes_path, ({style: "color: grey; text-decoration: none;"} if params[:controller] == 'episodes' && %w(index show).include?(params[:action]))%></li>
+              <li><%= link_to "SUBSCRIBE", '/subscribe', ({style: "color: grey; text-decoration: none;"} if current_page?('/subscribe'))%></li>
+              <li><%= link_to "EVENTS", events_path, ({style: "color: grey; text-decoration: none;"} if current_page?(events_path))%></li>
+              <li><%= link_to "ABOUT", '/about', ({style: "color: grey; text-decoration: none;"} if current_page?('/about'))%></li>
+              <li><%= link_to "CONTACT", '/contact', ({style: "color: grey; text-decoration: none;"} if current_page?('/contact'))%></li>
+            </ul>
+          </div>
+        </div>
 
       <div class="row">
+    <% end %>
 
-        <%= yield %>
+
+    <%= yield %>
 
 
-        <% unless params[:page] == 'recent' %>
 
+
+
+      <% unless (params[:controller] == 'splash' && %w(show).include?(params[:action])) || (params[:page] == 'recent') %>
         <div class="hidden-xs hidden-sm sidebar col-xs-2 pull-right">
           <div class="sidebar-section search">
             <%= form_tag episodes_path, method: :get do %>
@@ -71,9 +73,11 @@
             <a href="https://twitter.com/oakdrivepodcast">
               <i class="fa fa-lg fa-twitter" aria-hidden="true"></i>
             </a>
+
             <a href="https://www.facebook.com/oakdrivepodcast">
               <i class="fa fa-lg fa-facebook" aria-hidden="true"></i>
             </a>
+
             <a href="https://www.instagram.com/oakdrivepodcast/">
               <i class="fa fa-lg fa-instagram" aria-hidden="true"></i>
             </a>
@@ -92,61 +96,59 @@
           </div>
         </div>
       </div>
-      <% end %>
-    <!--footer -->
-
-    <% if params[:controller] == 'episodes' && %w(show).include?(params[:action]) %>
+    <% end %>
 
 
-      <div id="footer">
-        <div style="margin-right:auto;width:50px;">
-          <% if @episode != @episodes.first %>
-            <%= link_to(@episodes[(@episodes.index(@episode)-1)]) do %>
-              <p id="prev">< Prev</p>
+      <!--footer -->
+      <% if params[:controller] == 'episodes' && %w(show).include?(params[:action]) %>
+        <div id="footer">
+          <div style="margin-right:auto;width:50px;">
+            <% if @episode != @episodes.first %>
+              <%= link_to(@episodes[(@episodes.index(@episode)-1)]) do %>
+                <p id="prev">< Prev</p>
+              <% end %>
             <% end %>
-          <% end %>
-        </div>
-        <div style="margin-left:auto;width:50px;">
-          <% if @episode != @episodes.last %>
-            <%= link_to(@episodes[(@episodes.index(@episode)+1)]) do %>
-              <p id="next">Next ></p>
+          </div>
+          <div style="margin-left:auto;width:50px;">
+            <% if @episode != @episodes.last %>
+              <%= link_to(@episodes[(@episodes.index(@episode)+1)]) do %>
+                <p id="next">Next ></p>
+              <% end %>
             <% end %>
+          </div>
+            <p id="footer-center">
+              <br class=" hidden-md hidden-lg hidden-xl">
+              <span id="published">PUBLISHED ON: <%= @episode.created_at.strftime("%m.%d.%Y") %></span>
+
+              <br class=" hidden-md hidden-lg hidden-xl">
+              <span id="season">FROM: SEASON 01</span>
+              <br class=" hidden-md hidden-lg hidden-xl">
+
+              <span id="producer">PRODUCER: MOSIAH RASHAAD</span>
+            </p>
+          </div>
+
+        <div class="mobile-search  hidden-md hidden-lg hidden-xl">
+          <%= form_tag episodes_path, method: :get do %>
+            <%= text_field_tag :query, params[:query], :placeholder => "search" %>
           <% end %>
+
+          <h4 id="social-mobile">SOCIAL ISH</h4>
+          <i class="fa fa-lg fa-music" aria-hidden="true"></i>
+
+          <a href="https://twitter.com/oakdrivepodcast">
+            <i class="fa fa-lg fa-twitter" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.facebook.com/oakdrivepodcast">
+            <i class="fa fa-lg fa-facebook" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.instagram.com/oakdrivepodcast/">
+            <i class="fa fa-lg fa-instagram" aria-hidden="true"></i>
+          </a>
         </div>
-          <p id="footer-center">
-            <br class=" hidden-md hidden-lg hidden-xl">
-            <span id="published">PUBLISHED ON: <%= @episode.created_at.strftime("%m.%d.%Y") %></span>
-
-            <br class=" hidden-md hidden-lg hidden-xl">
-            <span id="season">FROM: SEASON 01</span>
-            <br class=" hidden-md hidden-lg hidden-xl">
-
-            <span id="producer">PRODUCER: MOSIAH RASHAAD</span>
-          </p>
-
-
-
       </div>
-      <% end %>
+    <% end %>
 
-      <div class="mobile-search  hidden-md hidden-lg hidden-xl">
-        <%= form_tag episodes_path, method: :get do %>
-          <%= text_field_tag :query, params[:query], :placeholder => "search" %>
-        <% end %>
 
-        <h4 id="social-mobile">SOCIAL ISH</h4>
-        <i class="fa fa-lg fa-music" aria-hidden="true"></i>
-
-        <a href="https://twitter.com/oakdrivepodcast">
-          <i class="fa fa-lg fa-twitter" aria-hidden="true"></i>
-        </a>
-        <a href="https://www.facebook.com/oakdrivepodcast">
-          <i class="fa fa-lg fa-facebook" aria-hidden="true"></i>
-        </a>
-        <a href="https://www.instagram.com/oakdrivepodcast/">
-          <i class="fa fa-lg fa-instagram" aria-hidden="true"></i>
-        </a>
-      </div>
-    </div>
-</body>
+  </body>
 </html>

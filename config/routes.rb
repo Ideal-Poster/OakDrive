@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'splash/show'
+
   resources :events
   resources :episodes
 
@@ -6,9 +8,9 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root "episodes#index"
+  root "splash#show"
 
-   get "/pages/:page" => "pages#show"
+   get "/:page" => "pages#show"
 
 
   # Example of regular route:
