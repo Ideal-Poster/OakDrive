@@ -19,7 +19,7 @@
 }
 
 .recent-spotlight {
-  width: 300px;
+  width: 100%;
   margin-top: 0px;
   vertical-align:top;
   display: inline-block;
@@ -52,6 +52,14 @@
     -webkit-box-flex: 1;
 }
 
-.about {
+.most-recent-spacing {
+  margin-bottom:30px;
+  margin-top:-17px;
+}
 
+.ep {
+  margin-top: 20px;
+}
+.mobile-recent-spacing {
+  margin-top: 10px;
 }

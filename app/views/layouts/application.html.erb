@@ -14,12 +14,21 @@
     <% unless current_page? root_path %>
         <div class="container-fluid">
           <div class="dropdown  hidden-md hidden-lg">
-
-          <div class="dropbtn">
-            <div class="icon-bar"></div>
-            <div class="icon-bar"></div>
-            <div class="icon-bar"></div>
-          </div>
+            <%if current_page? '/recent'%>
+            <div class="dropbtn-recent">
+              <div class="dropbtn">
+                <div class="icon-bar"></div>
+                <div class="icon-bar"></div>
+                <div class="icon-bar"></div>
+              </div>
+            </div>
+            <% else %>
+              <div class="dropbtn">
+                <div class="icon-bar"></div>
+                <div class="icon-bar"></div>
+                <div class="icon-bar"></div>
+              </div>
+            <% end%>
 
           <div class="dropdown-container">
             <div class="dropdown-content">
@@ -127,28 +136,28 @@
               <span id="producer">PRODUCER: MOSIAH RASHAAD</span>
             </p>
           </div>
-
-        <div class="mobile-search  hidden-md hidden-lg hidden-xl">
-          <%= form_tag episodes_path, method: :get do %>
-            <%= text_field_tag :query, params[:query], :placeholder => "search" %>
-          <% end %>
-
-          <h4 id="social-mobile">SOCIAL ISH</h4>
-          <i class="fa fa-lg fa-music" aria-hidden="true"></i>
-
-          <a href="https://twitter.com/oakdrivepodcast">
-            <i class="fa fa-lg fa-twitter" aria-hidden="true"></i>
-          </a>
-          <a href="https://www.facebook.com/oakdrivepodcast">
-            <i class="fa fa-lg fa-facebook" aria-hidden="true"></i>
-          </a>
-          <a href="https://www.instagram.com/oakdrivepodcast/">
-            <i class="fa fa-lg fa-instagram" aria-hidden="true"></i>
-          </a>
-        </div>
       </div>
     <% end %>
 
+    <% unless current_page?(root_path) %>
+    <div class="mobile-search  hidden-md hidden-lg hidden-xl">
+      <%= form_tag episodes_path, method: :get do %>
+        <%= text_field_tag :query, params[:query], :placeholder => "search" %>
+      <% end %>
 
+      <h4 id="social-mobile">SOCIAL ISH</h4>
+      <i class="fa fa-lg fa-music" aria-hidden="true"></i>
+
+      <a href="https://twitter.com/oakdrivepodcast">
+        <i class="fa fa-lg fa-twitter" aria-hidden="true"></i>
+      </a>
+      <a href="https://www.facebook.com/oakdrivepodcast">
+        <i class="fa fa-lg fa-facebook" aria-hidden="true"></i>
+      </a>
+      <a href="https://www.instagram.com/oakdrivepodcast/">
+        <i class="fa fa-lg fa-instagram" aria-hidden="true"></i>
+      </a>
+    </div>
+    <% end %>
   </body>
 </html>

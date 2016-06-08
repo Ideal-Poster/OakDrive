@@ -3,23 +3,21 @@
 <% end %>
 
 
-<div class="col-sm-12"
- id="content-container"
- style="padding-top:-15px;">
-  <h3 class="title-spacing index-alignment"
+<div class="col-sm-12" id="content-container" style="padding-top:-15px;">
+  <h3 class="title-spacing index-alignment most-recent-spacing"
       style="margin-bottom:30px;">MOST RECENT
   </h3>
 
-
   <div class="recent-container">
     <div class="recent-spotlight">
-      <%= image_tag(@episodes.first.image.url(:medium))  %>
-    <h3 class="index-alignment title-spacing">  <%= @episodes.first.title %></h3>
-    <p><%= @episodes.first.description %></p>
-    <br>
+      <%= link_to image_tag(@episodes.first.image.url(:medium)), @episodes.first  %>
+      <h3 class="index-alignment title-spacing">  <%= @episodes.first.title %></h3>
+      <p><%= @episodes.first.description %></p>
+      <br>
     </div>
 
-    <div class="hidden-xs hidden-sm box box2"></div>
+    <div class="hidden-xs hidden-sm box box2">
+    </div>
 
     <div class="hidden-xs hidden-sm recent">
       <% @episodes.each do |episode| %>
@@ -46,10 +44,19 @@
   </a>
 </div>
 
-<% @episodes.sort.each do |episode| %>
+<div class="mobile-recent-container">
 
-  <div class="index-alignment hidden-md hidden-lg hidden-xl ">
-    <%= link_to image_tag(episode.image.url(:thumb)), episode %>
-  </div>
-  <br>
-<% end %>
+  <% @episodes.sort.each do |episode| %>
+    <div class="index-alignment mobile-recent hidden-md hidden-lg hidden-xl ">
+      <%= link_to image_tag(episode.image.url(:thumb)), episode %>
+
+      <div class="ep">
+        <%= "ep-#{episode.episode_num}" %>
+      </div>
+      <div class="mobile-recent-spacing">
+        <%= episode.title %>
+      </div>
+
+    </div>
+  <% end %>
+</div>

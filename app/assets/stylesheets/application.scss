@@ -47,6 +47,7 @@ h4 {
 
 #content-container {
   margin-top: 100px;
+
 }
 
 .navbar {
@@ -287,6 +288,14 @@ a:hover {
   background-color: #231F20;
 }
 
+.dropbtn-recent {
+
+}
+
+@media (max-width: 991px){
+
+}
+
 .dropdown-button-container{
   width: 100%;
 }
@@ -359,10 +368,18 @@ a:hover {
   margin-left: 14px;
   margin-right: 14px;
 }
-
-.description-container {
-
+.block {
+  display: block;
 }
 
-.subscribe {
+.mobile-recent {
+  display: inline-block;
+  padding: 10px;
+}
+.mobile-recent-container {
+
+  max-width: 407px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
