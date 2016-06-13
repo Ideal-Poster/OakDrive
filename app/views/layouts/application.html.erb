@@ -52,7 +52,7 @@
 
       <%= yield %>
 
-      <% unless (params[:controller] == 'splash' && %w(show).include?(params[:action])) || (params[:page] == 'recent') %>
+      <% if 1 < 0 %>
         <div class="hidden-xs hidden-sm sidebar col-xs-2 pull-right">
           <div class="sidebar-section search">
             <%= form_tag episodes_path, method: :get do %>
@@ -144,5 +144,8 @@
         </a>
       </div>
     <% end %>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
   </body>
 </html>

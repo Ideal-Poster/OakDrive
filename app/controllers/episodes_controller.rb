@@ -1,6 +1,6 @@
 class EpisodesController < ApplicationController
   before_action :set_episode, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, except: [:index, :show] 
   # GET /episodes
   # GET /episodes.json
   def index
@@ -21,7 +21,8 @@ class EpisodesController < ApplicationController
   def new
     @episodes = Episode.all
     @latest = Episode.all
-    @episode = Episode.new
+    @episode = current_user.episodes.build
+
   end
 
   # GET /episodes/1/edit
@@ -35,7 +36,7 @@ class EpisodesController < ApplicationController
   def create
     @latest = Episode.all
 
-    @episode = Episode.new(episode_params)
+    @episode = current_user.episodes.build(episode_params)
 
     respond_to do |format|
       if @episode.save
@@ -52,7 +53,7 @@ class EpisodesController < ApplicationController
   # PATCH/PUT /episodes/1.json
   def update
     @latest = Episode.all
-    
+
     respond_to do |format|
       if @episode.update(episode_params)
         format.html { redirect_to @episode, notice: 'Episode was successfully updated.' }

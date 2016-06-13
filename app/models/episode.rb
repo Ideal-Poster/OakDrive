@@ -11,4 +11,5 @@ class Episode < ActiveRecord::Base
           where("title @@ :q or description @@ :q or guests @@ :q", q: query)
         end
       end
+  belongs_to :user
 end

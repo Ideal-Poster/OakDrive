@@ -51,6 +51,7 @@ gem 'modernizr-rails', '~> 2.7', '>= 2.7.1'
 
 gem 'wavesurfer'
 
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
