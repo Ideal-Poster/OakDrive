@@ -22,7 +22,23 @@
     <div class="hidden-xs hidden-sm recent">
       <% @episodes.each do |episode| %>
         <div class="recent-spacing">
+          <a href="/episodes/<%= episode.episode_num %>">
+            <div class="mobile-recent-img">
+                <div class="recent-title">
+                    <% if episode.episode_num > 9 %>
+                      <%= "ep-#{episode.episode_num}" %>
+                    <% else %>
+                      <%= "ep-0#{episode.episode_num}" %>
+                    <% end %>
+                    <br>
+
+                  <%= episode.title %>
+                </div>
+            </div>
+          </a>
+
           <%= link_to image_tag(episode.image.url(:thumb)), episode %>
+
         </div>
       <% end %>
     </div>
@@ -51,7 +67,12 @@
       <%= link_to image_tag(episode.image.url(:thumb)), episode %>
 
       <div class="ep">
-        <%= "ep-#{episode.episode_num}" %>
+        <% if episode.episode_num > 9 %>
+          <%= "ep-#{episode.episode_num}" %>
+        <% else %>
+          <%= "ep-0#{episode.episode_num}" %>
+        <% end %>
+
       </div>
       <div class="mobile-recent-spacing">
         <%= episode.title %>

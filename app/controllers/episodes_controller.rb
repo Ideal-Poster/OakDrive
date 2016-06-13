@@ -33,6 +33,8 @@ class EpisodesController < ApplicationController
   # POST /episodes
   # POST /episodes.json
   def create
+    @latest = Episode.all
+
     @episode = Episode.new(episode_params)
 
     respond_to do |format|
@@ -49,6 +51,8 @@ class EpisodesController < ApplicationController
   # PATCH/PUT /episodes/1
   # PATCH/PUT /episodes/1.json
   def update
+    @latest = Episode.all
+    
     respond_to do |format|
       if @episode.update(episode_params)
         format.html { redirect_to @episode, notice: 'Episode was successfully updated.' }

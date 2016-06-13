@@ -53,12 +53,14 @@ a {
 }
 
 .jp-play,.jp-pause {
-    width: 45px;
+    width: 40px;
     height: 40px;
+    padding-left: 5px;
     display: inline-block;
     text-align: center;
     line-height: 43px;
-    border-right: 1px solid #d22f0f;
+    border-radius: 30px;
+    background-color: #DF5745;
 }
 
 .jp-controls .jp-play:hover,.jp-controls .jp-pause:hover {
@@ -124,4 +126,35 @@ a {
     right: 90px;
     top: 14px;
     text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+}
+
+.stuff {
+  margin-top: 10px;
+}
+
+.play-arrow {
+  margin-top: 2px;
+}
+
+.play {
+
+  border-radius: 25px;
+  width: 35px;
+  height: 35px;
+}
+
+.controls {
+  position: absolute;
+  height: 50px;
+  margin-top: 9px;
+}
+
+.description-container {
+  margin-top: 10px;
+}
+
+#waveform {
+  width: 249px;
+  margin-left: 45px;
+  height: 50px;
 }

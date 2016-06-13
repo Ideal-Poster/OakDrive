@@ -60,6 +60,28 @@
 .ep {
   margin-top: 20px;
 }
+
 .mobile-recent-spacing {
   margin-top: 10px;
+}
+
+.mobile-recent-img {
+  position: absolute;
+  width:180px;
+  height:180px;
+  z-index:11;
+  text-align: center;
+  color: rgba(0, 0, 0, 0);
+}
+
+.mobile-recent-img:hover {
+  color: white;
+  -webkit-transition: all .2s ease-in-out;
+
+  background-color: rgba(35, 31, 32, 0.7);
+}
+
+.recent-title {
+  margin-top: 41%;
+  margin-bottom: auto;
 }

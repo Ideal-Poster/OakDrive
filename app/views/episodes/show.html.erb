@@ -8,7 +8,7 @@
 
 
 
-    <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+<!--<div id="jquery_jplayer_1" class="jp-jplayer"></div>
     <div id="jp_container_1" class="jp-audio">
       <div class="jp-type-single">
 
@@ -37,7 +37,24 @@
           </div>
         </div>
       </div>
+    </div> -->
+
+  <div class="stuff index-alignment">
+    <div class="controls">
+      <button class="btn play" onclick="wavesurfer.playPause()">
+        <i class="fa fa-play play-arrow"></i>
+      </button>
     </div>
+
+    <div id="waveform">
+      <progress id="progress" class="progress progress-striped"></progress>
+    </div>
+
+    <audio controls>
+      <source src="<%= @episode.mp3 %>" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
+  </div>
 
   <div class="description-container">
     <a href="<%= @episode.mp3 %>">Download</a>
@@ -54,25 +71,34 @@
 
 
 <script type="text/javascript">
-$(document).ready(function(){
-   $("#jquery_jplayer_1").jPlayer({
-     ready: function () {
-       $(this).jPlayer("setMedia", {
-         m4a: "<%= @episode.mp3 %>",
-         mp3: "<%= @episode.mp3 %>",
-         oga: "<%= @episode.mp3 %>"
-       });
-     },
-      cssSelectorAncestor: "#jp_container_1",
-      swfPath: "/js",
-      supplied: "m4a, oga, mp3",
-   		wmode: "window",
-   		useStateClassSkin: true,
-   		autoBlur: false,
-   		keyEnabled: true,
-   		remainingDuration: true,
-   		toggleDuration: true,
-   });
- });
+
+
+var ctx = document.createElement('canvas').getContext('2d');
+var linGrad = ctx.createLinearGradient(0, 64, 0, 200);
+linGrad.addColorStop(0.5, 'rgba(255, 255, 255, 1.000)');
+linGrad.addColorStop(0.5, 'rgba(183, 183, 183, 1.000)');
+
+var wavesurfer = WaveSurfer.create({
+  mediaType: 'audio',
+  container: '#waveform',
+  progressColor: 'hsla(200, 100%, 30%, 0.5)',
+  cursorColor: '#fff',
+  barWidth: 2,
+  height: 50,
+  pixelRatio: 1,
+  minPxPerSec: 1
+});
+
+
+wavesurfer.on('loading', function (percents) {
+  document.getElementById('progress').value = percents;
+});
+
+wavesurfer.on('ready', function (percents) {
+  document.getElementById('progress').style.display = 'none';
+});
+
+wavesurfer.load("<%= @episode.mp3 %>");
+
 
 </script>
