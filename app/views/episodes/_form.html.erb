@@ -16,28 +16,30 @@
   </div>
 
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :guests %><br>
-    <%= f.text_field :guests %>
-  </div>
-  <div class="field">
-    <%= f.label :link %><br>
-    <%= f.text_field :link %>
-  </div>
-
-  <div class="field">
     <%= f.label :mp3 %><br>
     <%= f.file_field :mp3 %>
   </div>
 
-  <div class="actions">
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: "button-color" %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description, class: "button-color" %>
+  </div>
+  <div class="field">
+    <%= f.label :guests %><br>
+    <%= f.text_field :guests, class: "button-color" %>
+  </div>
+  <div class="field">
+    <%= f.label :link %><br>
+    <%= f.text_field :link, class: "button-color" %>
+  </div>
+
+
+
+  <div class="actions button-color">
     <%= f.submit %>
   </div>
 <% end %>
