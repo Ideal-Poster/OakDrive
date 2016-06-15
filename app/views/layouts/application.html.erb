@@ -52,7 +52,7 @@
 
       <%= yield %>
 
-      <% if 1 < 0 %>
+      <% if ( %w(episodes events).include?(params[:controller]) && %w(index show).include?(params[:action])) || %w(contact about events subscribe).include?(params[:page])  %>
         <div class="hidden-xs hidden-sm sidebar col-xs-2 pull-right">
           <div class="sidebar-section search">
             <%= form_tag episodes_path, method: :get do %>
@@ -86,7 +86,7 @@
 
           <div class="sidebar-section">
             <h4 class="title">ARCHIVES</h4>
-            <p>Season 01</p>
+            <%= link_to 'Season 01', episodes_path %>
           </div>
         </div>
       <% end %>

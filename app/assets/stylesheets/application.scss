@@ -128,7 +128,8 @@ h4 {
 
 }
 
-
+.controls,
+button:focus,
 textarea:focus,
 input[type="text"]:focus,
 input[type="password"]:focus,
@@ -212,7 +213,7 @@ a:hover {
 }
 
 #producer {
-  width: 260px;
+  min-width: 270px;
   display: inline;
   padding-left: 20px;
   padding-right: 20px;
@@ -266,6 +267,12 @@ a:hover {
   .description{
     max-width: 300px;
   }
+  #waveplayer {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
 
 }
 

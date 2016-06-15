@@ -6,57 +6,29 @@
       <%= image_tag(@episode.image.url(:medium)) %>
     </div>
 
+  <div class="stuff index-alignment">
 
+  <!--  <div id="waveplayer">
+      <div class="controls">
+        <button class="btn play" onclick="wavesurfer.playPause()">
+          <i class="fa fa-play play-arrow"></i>
+        </button>
+      </div>
 
-<!--<div id="jquery_jplayer_1" class="jp-jplayer"></div>
-    <div id="jp_container_1" class="jp-audio">
-      <div class="jp-type-single">
-
-          <div class="jp-gui jp-interface">
-            <ul class="jp-controls">
-              <li><a href="javascript:;" class="jp-play" tabindex="1">&#61515;</a></li>
-              <li><a href="javascript:;" class="jp-pause" tabindex="1">&#61516;</a></li>
-              <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">&#61480;</a></li>
-              <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">&#61478;</a></li>
-            </ul>
-            <div class="jp-progress">
-              <div class="jp-seek-bar">
-                <div class="jp-play-bar"></div>
-              </div>
-            </div>
-            <div class="jp-time-holder">
-              <div class="jp-current-time"></div>
-            </div>
-            <div class="jp-volume-bar">
-              <div class="jp-volume-bar-value"></div>
-            </div>
-
-          <div class="jp-no-solution index-alignment">
-            <span>Update Required</span>
-            To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
-          </div>
-        </div>
+      <div id="waveform">
+        <progress id="progress" class="progress progress-striped"></progress>
       </div>
     </div> -->
 
-  <div class="stuff index-alignment">
-    <div class="controls">
-      <button class="btn play" onclick="wavesurfer.playPause()">
-        <i class="fa fa-play play-arrow"></i>
-      </button>
-    </div>
-
-    <div id="waveform">
-      <progress id="progress" class="progress progress-striped"></progress>
-    </div>
-
     <audio controls>
       <source src="<%= @episode.mp3 %>" type="audio/mpeg">
-    Your browser does not support the audio element.
+      Your browser does not support the audio element.
     </audio>
+
   </div>
 
   <div class="description-container">
+    <br>
     <a href="<%= @episode.mp3 %>">Download</a>
     <br>
     <br>
@@ -78,14 +50,13 @@ linGrad.addColorStop(0.5, 'rgba(255, 255, 255, 1.000)');
 linGrad.addColorStop(0.5, 'rgba(183, 183, 183, 1.000)');
 
 var wavesurfer = WaveSurfer.create({
-  mediaType: 'audio',
   container: '#waveform',
   progressColor: 'hsla(200, 100%, 30%, 0.5)',
   cursorColor: '#fff',
   barWidth: 2,
   height: 50,
   pixelRatio: 1,
-  minPxPerSec: 1
+  minPxPerSec: 1,
 });
 
 
